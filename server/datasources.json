@@ -1,0 +1,48 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodb_dev": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "database": "lolstats",
+    "username": "webuser",
+    "password": "NVSvdOViNDKRkOzgwO7P",
+    "name": "mongodb_dev",
+    "connector": "mongodb"
+  },
+  "StaticDataService": {
+    "name": "StaticDataService",
+    "connector": "rest",
+    "debug": "true",
+    "operations": [
+      {
+        "template": {
+          "method": "GET",
+          "url": "https://eune.api.pvp.net/api/lol/static-data/{region=eune}/{version=v1.2}",
+          "headers": {
+            "accepts": "application/json",
+            "content-type": "application/json"
+          },
+          "query": {
+            "apikey": "{apikey=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}",
+            "locale": "{locale=en_UK}",
+            "version": "{version=false}",
+            "dataById": "{dataById=true}",
+            "champData": "{champData=info}"
+          },
+          "responsePath": "$.results[0]"
+        },
+        "functions": {
+          "champion": [
+            "locale",
+            "version",
+            "dataById",
+            "champData"
+          ]
+        }
+      }
+    ]
+  }
+}
