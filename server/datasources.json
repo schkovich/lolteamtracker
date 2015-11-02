@@ -20,19 +20,18 @@
       {
         "template": {
           "method": "GET",
-          "url": "https://eune.api.pvp.net/api/lol/static-data/{region=eune}/{version=v1.2}",
+          "url": "https://eune.api.pvp.net/api/lol/static-data/{region=eune}/{version=v1.2}/champion",
           "headers": {
             "accepts": "application/json",
             "content-type": "application/json"
           },
           "query": {
-            "apikey": "{apikey=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}",
-            "locale": "{locale=en_UK}",
-            "version": "{version=false}",
+            "api_key": "{api_key=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}",
+            "locale": "{locale=en_US}",
             "dataById": "{dataById=true}",
             "champData": "{champData=info}"
           },
-          "responsePath": "$.results[0]"
+          "responsePath": "$.data[*]"
         },
         "functions": {
           "champion": [

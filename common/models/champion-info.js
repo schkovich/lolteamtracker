@@ -3,15 +3,16 @@ module.exports = function (ChampionInfo) {
         var championInfoService = obj.getDataSource();
 
         championInfoService.champion(function(err, response, context) {
-            console.log(err);
+            //console.log(arguments);
             if (err) throw err; //error making request
             if (response.error) {
                 next('> response error: ' + response.error.stack);
             }
-            obj.coffeeShops = response;
-            console.log('> coffee shops fetched successfully from remote server');
+            //obj.response = response;
+            //console.log(arguments);
+            console.log('> champions info fetched successfully from remote server');
             //verify via `curl localhost:3000/api/Magazines`
-            next();
+            //next();
         });
     });
 };
