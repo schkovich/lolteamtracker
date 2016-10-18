@@ -247,9 +247,11 @@ function teamGames(gamesData) {
 var gamesSummary = teamGames();
 console.debug(games);
 
-var gameIDs = gamesSummary.filter(function(gamesSummary) {
-    if(gamesSummary.games.subType == "RANKED_SOLO_5x5") { //filter games that are 5v5 solo Q
-        return gamesSummary.games.gameId; //return array of game IDs
+var gameIds = gamesSummary.filter(function(gamesSummary) {
+    if(gamesSummary.games.subType == "RANKED_SOLO_5x5") { //filter games that are 5v5 solo Queue
+        return gamesSummary.games.gameId; //return array of game Ids
     }
 
 });
+
+console.debug(gameIds);
