@@ -231,6 +231,7 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
  }
  var totalGames = getTotalGames(staticData); //total games is equal to getTotalGames
 
+ console.log("total games"); //for testing
  console.debug(totalGames); //for debugging
 
  function getFullTimeWin(gameData) { //gets total time played during winning games
@@ -246,9 +247,18 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
 
  var timeWhenWinning = getFullTime(staticData); //timeWhenWinning is the full time played over all the wins
 
+ console.log("time when winning"); //for testing
+ console.debug(timeWhenWinning); //for debugging
+
+
  function getFullTimeLoss() { //get time when losing
      return gameTime - timeWhenWinning;
  }
+
+ var fullTimeWhenLosing = getFullTimeLoss();
+
+ console.log("full time when losing");
+ console.debug(fullTimeWhenLosing);
 
  function getTotalWins(gameData) { //get total number of games won
      var totalWins = 0;
@@ -262,8 +272,14 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
 
  var totalWins = getTotalWins(staticData); //number of total wins is equal top passed data
 
+ console.log("total Wins");
+ console.debug(totalWins);
+
  function getTotalLosses() {  //get the total number of losses
      return totalGames - totalWins;
  }
 
  var totalLosses = getTotalLosses(); //total number of losses set
+
+ console.log("total losses");
+ console.debug(totalLosses);
