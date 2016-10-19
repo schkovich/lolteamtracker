@@ -236,8 +236,8 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
 
  function getFullTimeWin(gameData) { //gets total time played during winning games
      var timeWin = 0;
-     for(var j = 0; j < gameData.games.length; j++){ //for all items in games array of object
-        if(gameData.games.stats.win == true) { //if game is a win
+     for(var i = 0; i < gameData.games.length; j++){ //for all items in games array of object
+        if(gameData.games[i].stats.win == true) { //if game is a win
             timeWin = timeWin + gameData.games.stats.timePlayed; //then add the game duration to timeWin
      }
 
@@ -245,7 +245,7 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
      return timeWin; //return total time when winning
  }
 
- var timeWhenWinning = getFullTime(staticData); //timeWhenWinning is the full time played over all the wins
+ var timeWhenWinning = getFullTimeWin(staticData); //timeWhenWinning is the full time played over all the wins
 
  console.log("time when winning"); //for testing
  console.debug(timeWhenWinning); //for debugging
@@ -255,15 +255,15 @@ var gameTime = getFullTime(staticData); //gameTime is equal to the return of get
      return gameTime - timeWhenWinning;
  }
 
- var fullTimeWhenLosing = getFullTimeLoss();
+ var timeWhenLosing = getFullTimeLoss();
 
  console.log("full time when losing");
- console.debug(fullTimeWhenLosing);
+ console.debug(timeWhenLosing);
 
  function getTotalWins(gameData) { //get total number of games won
      var totalWins = 0;
      for(var i = 0; i < gameData.games.length; i++) { //loop through array games in object
-         if(gameData.games.stats.win == true) { //if game is a win then add one to total wins
+         if(gameData.games[i].stats.win == true) { //if game is a win then add one to total wins
              totalWins++
          }
      }
