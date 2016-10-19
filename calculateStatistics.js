@@ -11,15 +11,24 @@ var totalLosses = 4;
 //end static data
 
 
-function averageGameTime() { //output average time of a game
+var averageGameTime = function averageGameTime() { //output average time of a game
     return gameTime/totalGames;
-}
+};
 
-function averageTimeWhenWinning() { //output average time of game when winning
+console.log("Average Game Time"); //for debugging
+console.debug(averageGameTime()); //for debugging
+
+
+var averageTimeWhenWinning = function averageTimeWhenWinning() { //output average time of game when winning
     return timeWhenWinning/totalWins;
-}
+};
 
-function averageTimeWhenLosing() { //output average time of game when losing
+console.log("Average Time When Winning"); //for debugging
+console.debug(averageTimeWhenWinning()); //for debugging
+
+var averageTimeWhenLosing = function averageTimeWhenLosing() { //output average time of game when losing
     return timeWhenLosing/totalLosses;
-}
+};
 
+console.log("Average time When Losing"); //for debugging
+console.debug(averageTimeWhenLosing()); //for debugging
