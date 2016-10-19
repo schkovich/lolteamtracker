@@ -1,10 +1,11 @@
-/**
+ /**
  * Created by Bluehoke on 16/10/2015.
  * Game data processing is found here
  * Data is prepared for calculations
+  * This set of functions generally gets specific data from the games array
+  * within the .json object that is returned from API
  */
-
-var staticData = {
+ var staticData = {
 
     "games": [
         {
@@ -3627,19 +3628,21 @@ var staticData = {
         }]
 };
 
-function processing(staticData) {
-    var getTotalGames = function(staticData) { //total number of games played
-        return staticData.games.length;
-    };
-    var gameTime = map(function getGameTime(staticData) { //outputs array of all match durations
-        for(var i = 0; i < staticData.games.length; i++) {
-            return staticData.games[i].matchDuration;
-        }
-    });
-
-    console.log(gameTime);
-    console.log(getTotalGames);
-
-
+ function getFullTime(data) { //gets total time played
+    var totalTime = 0;
+    for (var i = 0; i < data.games.length; i++) { //loop through array games
+        totalTime = totalTime + data.games[i].matchDuration; //increase time by value of matchDuration at games[i]
+    }
+    return totalTime; //returns value of time
 }
 
+var gameTime = getFullTime(staticData); //gameTime is equal to the return of getFullTime
+
+ console.debug(gameTime); //for debugging
+
+ function getTotalGames(data) { //gets the total number of games played from array games
+     return data.games.length; //returns the length of the array games (total number of games
+ }
+ var totalGames = getTotalGames(staticData); //total games is equal to getTotalGames
+
+ console.debug(totalGames); //for debugging
