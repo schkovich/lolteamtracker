@@ -32,16 +32,17 @@
     "dataSource": "db",
     "public": false
   },
-  "user": {
-    "dataSource": "mongodb_dev",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
-  },
   "ChampionInfo": {
     "dataSource": "StaticDataService",
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "RecentGame": {
+    "dataSource": "RecentGamesService",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
+
 }

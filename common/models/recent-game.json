@@ -1,0 +1,31 @@
+{
+  "name": "RecentGame",
+  "base": "Model",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "attack": {
+      "type": "number",
+      "required": true
+    },
+    "defense": {
+      "type": "number",
+      "required": true
+    },
+    "difficulty": {
+      "type": "number",
+      "required": true
+    },
+    "magic": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
