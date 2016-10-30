@@ -13,35 +13,54 @@
     "connector": "mongodb"
   },
   "StaticDataService": {
-    "name": "StaticDataService",
     "connector": "rest",
     "debug": "true",
-    "operations": [
-      {
-        "template": {
-          "method": "GET",
-          "url": "https://eune.api.pvp.net/api/lol/static-data/{region=eune}/{version=v1.2}/champion",
-          "headers": {
-            "accepts": "application/json",
-            "content-type": "application/json"
-          },
-          "query": {
-            "api_key": "{api_key=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}",
-            "locale": "{locale=en_US}",
-            "dataById": "{dataById=true}",
-            "champData": "{champData=info}"
-          },
-          "responsePath": "$.data[*]"
+    "strictSSL": false,
+    "operations": [{
+      "template": {
+        "method": "GET",
+        "url": "https://global.api.pvp.net/api/lol/static-data/eune/v1.2/champion",
+        "headers": {
+          "accepts": "application/json",
+          "content-type": "application/json"
         },
-        "functions": {
-          "champion": [
-            "locale",
-            "version",
-            "dataById",
-            "champData"
-          ]
-        }
+        "query": {
+          "api_key": "{api_key=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}",
+          "locale": "{locale=en_US}",
+          "dataById": "{dataById=true}",
+          "champData": "{champData=info}"
+        },
+        "responsePath": "$.data[*]"
+      },
+      "functions": {
+        "champion": [
+          "locale",
+          "dataById",
+          "champData"
+        ]
       }
-    ]
+    }]
+  },
+  "RecentGamesService": {
+    "connector": "rest",
+    "debug": "true",
+    "strictSSL": false,
+    "operations": [{
+      "template": {
+        "method": "GET",
+        "url": "https://eune.api.pvp.net//api/lol/eune/v1.3/game/by-summoner/33843888/recent",
+        "headers": {
+          "accepts": "application/json",
+          "content-type": "application/json"
+        },
+        "query": {
+          "api_key": "{api_key=24f6c97c-0cd7-4ff2-9c77-0b554f295db2}"
+        },
+        "responsePath": "$.games[*]"
+      },
+      "functions": {
+        "games": []
+      }
+    }]
   }
 }
